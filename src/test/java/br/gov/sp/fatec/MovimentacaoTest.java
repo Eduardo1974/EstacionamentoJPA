@@ -19,11 +19,11 @@ public class MovimentacaoTest {
 	@Test
 	public void cadastrarMovimentacao() {
 		
-		Veiculo veiculo = persistenceVeiculo.buscarVeiculo("DVZ-6625");
+		Veiculo veiculo = persistenceVeiculo.buscarVeiculo("DBZ-1101");
 		Movimentacao mov = new Movimentacao(new Date().getTime(), (new Date().getTime() + 500 ), veiculo);
 		persistenceMovimentacao.salvar(mov);
 		persistenceMovimentacao.fechar();
-		Assert.assertEquals(new Integer("3"), mov.getId_movimentacao());
+		Assert.assertEquals(new Integer("1"), mov.getId_movimentacao());
 	}
 
 	@Test

@@ -20,7 +20,7 @@ public class ClienteTest {
 	@Test
 	public void cadastrarClienteTest() {
 
-		Municipio muni = persistenceMunicipio.buscarMunicipioPorNome(DescricaoMunicipio.SJC);
+		Municipio muni = persistenceMunicipio.buscarMunicipioPorNome(DescricaoMunicipio.JACAREI);
 
 		Cliente cliente = new Cliente("Thiago", "36578909810", muni);
 
@@ -33,8 +33,8 @@ public class ClienteTest {
 	
 	@Test
 	public void consultarClienteTest() {
-		Cliente cliente = persistence.buscarClienteCpf("35134667810");
-		Assert.assertEquals("William", cliente.getNome());
+		Cliente cliente = persistence.buscarClienteCpf("36578909810");
+		Assert.assertEquals("Thiago", cliente.getNome());
 		persistence.fechar();
 	}
 	

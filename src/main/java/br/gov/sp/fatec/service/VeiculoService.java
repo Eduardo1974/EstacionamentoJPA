@@ -4,11 +4,14 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Component;
+
 import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Movimentacao;
 import br.gov.sp.fatec.model.Municipio;
 import br.gov.sp.fatec.model.Veiculo;
 
+@Component("VeiculoService")
 public class VeiculoService extends PersistenceServiceImpl{
 	
 	public List<Veiculo> buscarClienteCpf(String cpf) {

@@ -3,9 +3,13 @@ package br.gov.sp.fatec.service;
 import java.util.List;
 
 import javax.persistence.Query;
+
+import org.springframework.stereotype.Component;
+
 import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Municipio;
 
+@Component("MunicipioService")
 public class MunicipioService extends PersistenceServiceImpl {
 
 	public Municipio buscarMunicipioPorId(Integer id) {

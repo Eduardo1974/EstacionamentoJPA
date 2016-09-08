@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Component;
+
 import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Movimentacao;
 import br.gov.sp.fatec.model.Municipio;
 
-
+@Component("MovimentacaoService")
 public class MovimentacaoService extends PersistenceServiceImpl{
 	
 	public List<Movimentacao> buscarPorPlaca(String placa) {
