@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 
 import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Municipio;
+import br.gov.sp.fatec.repository.PersistenceServiceImpl;
 
-@Component("MunicipioService")
+@Component("municipioService")
 public class MunicipioService extends PersistenceServiceImpl {
 
 	public Municipio buscarMunicipioPorId(Integer id) {

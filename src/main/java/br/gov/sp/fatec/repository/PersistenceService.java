@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.service;
+package br.gov.sp.fatec.repository;
 
 public interface PersistenceService {
 	
@@ -9,5 +9,7 @@ public interface PersistenceService {
 	public void deletar(Object object);
 	
 	public void fechar();
+	
+	public void desfazerTransacao();
 
 }

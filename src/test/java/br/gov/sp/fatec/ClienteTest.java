@@ -54,7 +54,7 @@ public class ClienteTest {
 		persistence.fechar();
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void deletarClienteTest() {
 		persistence.deletar(persistence.buscarClienteCpf("42487690852"));
 		Assert.assertNull(persistence.buscarClienteCpf("42487690852"));

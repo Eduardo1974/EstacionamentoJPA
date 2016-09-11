@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Movimentacao;
 import br.gov.sp.fatec.model.Municipio;
+import br.gov.sp.fatec.repository.PersistenceServiceImpl;
 
-@Component("MovimentacaoService")
+@Component("movimentacaoService")
 public class MovimentacaoService extends PersistenceServiceImpl{
 	
 	public List<Movimentacao> buscarPorPlaca(String placa) {

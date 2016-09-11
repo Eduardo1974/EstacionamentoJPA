@@ -10,11 +10,12 @@ import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Movimentacao;
 import br.gov.sp.fatec.model.Municipio;
 import br.gov.sp.fatec.model.Veiculo;
+import br.gov.sp.fatec.repository.PersistenceServiceImpl;
 
-@Component("VeiculoService")
+@Component("veiculoService")
 public class VeiculoService extends PersistenceServiceImpl{
 	
-	public List<Veiculo> buscarClienteCpf(String cpf) {
+	public List<Veiculo> buscarVeiculosCpf(String cpf) {
 		 
 		String queryText = "select v from Veiculo v where v.cliente.cpf = :cpf";
 		Query query = getManager().createQuery(queryText);

@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 
 import br.gov.sp.fatec.model.Cliente;
 import br.gov.sp.fatec.model.Veiculo;
+import br.gov.sp.fatec.repository.PersistenceServiceImpl;
 
-@Component("ClienteService")
+@Component("clienteService")
 public class ClienteService extends PersistenceServiceImpl {
 
 	public Cliente buscarClienteCpf(String cpf) {
@@ -21,7 +22,7 @@ public class ClienteService extends PersistenceServiceImpl {
 	}
 	
 	public List<Veiculo> buscarListaVeiculo() {
-		String queryText = "select v from Veiculo v";
+		String queryText = "select v from Veiculo v ";
 		Query query = getManager().createQuery(queryText);
 		@SuppressWarnings("unchecked")
 		List<Veiculo> veiculosLista = query.getResultList(); 

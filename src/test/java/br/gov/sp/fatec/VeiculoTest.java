@@ -29,7 +29,7 @@ public class VeiculoTest {
 
 	@Test
 	public void consultarVeiculosCliente() {
-		List<Veiculo> veiculos = persistenceVeiculo.buscarClienteCpf("41520050050");
+		List<Veiculo> veiculos = persistenceVeiculo.buscarVeiculosCpf("41520050050");
 		Assert.assertEquals(1, veiculos.size());
 		persistenceVeiculo.fechar();
 	}

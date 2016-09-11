@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.service;
+package br.gov.sp.fatec.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,7 +9,7 @@ public abstract class PersistenceServiceImpl implements PersistenceService {
 	private final EntityManagerFactory factory = Persistence.createEntityManagerFactory("estacionamento");
 	private final EntityManager manager = factory.createEntityManager(); 
 	
-	protected EntityManager getManager() {
+	public EntityManager getManager() {
 		return manager;
 	}
 	
@@ -44,6 +44,11 @@ public abstract class PersistenceServiceImpl implements PersistenceService {
 	public void fechar() {
 		manager.close();
 		factory.close(); 
+	}
+	
+	@Override
+	public void desfazerTransacao(){
+		manager.getTransaction().rollback();
 	}
 
 }

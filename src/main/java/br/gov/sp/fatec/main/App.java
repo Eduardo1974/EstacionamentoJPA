@@ -10,42 +10,34 @@ import br.gov.sp.fatec.model.DescricaoMunicipio;
 import br.gov.sp.fatec.model.Movimentacao;
 import br.gov.sp.fatec.model.Municipio;
 import br.gov.sp.fatec.model.Veiculo;
-import br.gov.sp.fatec.service.ClienteService;
-import br.gov.sp.fatec.service.MovimentacaoService;
-import br.gov.sp.fatec.service.MunicipioService;
-import br.gov.sp.fatec.service.VeiculoService;
+import br.gov.sp.fatec.repository.ClientePersistence;
+import br.gov.sp.fatec.repository.MovimentacaoPersistence;
+import br.gov.sp.fatec.repository.MunicipioPersistence;
+import br.gov.sp.fatec.repository.VeiculoPersistence;
 
-/**
- * Hello world!
- *
- */
 public class App {
+
 	public static void main( String[] args ){
     	
-    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DIConfig.class);
+		
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DIConfig.class);
     	
-    	MunicipioService persistenceMunicipio = (MunicipioService) context.getBean(MunicipioService.class);
-    	Municipio muni = persistenceMunicipio.buscarMunicipioPorNome(DescricaoMunicipio.JACAREI);
-    	System.out.println(muni.getNome());
+    	ClientePersistence clientePersistence = (ClientePersistence) context.getBean(ClientePersistence.class);
+    	Cliente cli = clientePersistence.buscarClienteCpf("36578909810");
+    	System.out.println(cli.getNome());
     	
-    	ClienteService persistenceCliente = (ClienteService) context.getBean(ClienteService.class);
-    	Cliente cliente = persistenceCliente.buscarClienteCpf("36578909810");
-    	System.out.println(cliente.getNome());
-    	
-    	VeiculoService persistenceVeiculo = (VeiculoService) context.getBean(VeiculoService.class);
-    	Veiculo veiculo = persistenceVeiculo.buscarVeiculo("DBZ-1101");
+    	VeiculoPersistence veiculoPersistence = (VeiculoPersistence) context.getBean(VeiculoPersistence.class);
+    	Veiculo veiculo = veiculoPersistence.buscarVeiculo("DBZ-1101");
     	System.out.println(veiculo.getModelo());
     	
-    	MovimentacaoService persistenceMovimentacao = (MovimentacaoService) context.getBean(MovimentacaoService.class);
-    	List<Movimentacao> movimentacoes = persistenceMovimentacao.buscarPorPlaca("DBZ-1101");
-    	for(Movimentacao m: movimentacoes){
-    		System.out.println(m.getData_hora_entrada());
-    	}
+    	MunicipioPersistence municipioPersistence = (MunicipioPersistence) context.getBean(MunicipioPersistence.class);
+    	Municipio municipio = municipioPersistence.buscarMunicipioPorNome(DescricaoMunicipio.JACAREI);
+    	System.out.println(municipio.getNome());
     	
-    	persistenceMovimentacao.fechar();
-    	persistenceVeiculo.fechar();
-    	persistenceCliente.fechar();
-    	persistenceMunicipio.fechar();
+    	MovimentacaoPersistence movimentacaoPersistence = (MovimentacaoPersistence) context.getBean(MovimentacaoPersistence.class);
+    	List<Movimentacao> movimentacao = movimentacaoPersistence.buscarPorPlaca("DBZ-1101");
+    	System.out.println(movimentacao.size());
+    	
     	context.close();
     }
 }
